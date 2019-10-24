@@ -1,0 +1,22 @@
+<body>
+
+
+    {% load static %}
+
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+
+    
+<div id = ‘header’></div>
+<div id=‘main’>
+
+    {% block main %}
+    <h2>this is base.html.....</h2>
+    {% endblock %}
+
+
+</div>
+<div id= ‘footer’></div>
+</body>

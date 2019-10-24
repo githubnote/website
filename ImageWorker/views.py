@@ -25,4 +25,6 @@ def ImageWorkerTest(request):
 
 
 def index(request):
-    return HttpResponse("this is index html file....")
+    context = {"text": "123"}
+
+    return render(request, "index.html", context)
