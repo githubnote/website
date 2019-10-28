@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     "ImageWorker.apps.ImageworkerConfig",
+    'autofixture',
+
+
 
 ]
 
