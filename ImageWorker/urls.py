@@ -6,5 +6,6 @@ app_name="imageworker"
 urlpatterns = [
     path('test/', views.ImageWorkerTest, name='ImageWorkerTest'),
     path('', views.index, name='index'),
+    path('testinfo/', views.test_info, name='testinfo'),
 
 ]

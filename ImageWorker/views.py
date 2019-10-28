@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.http import Http404
 
 from .models import site_info
+from django.template import RequestContext
+
 
 # Create your views here.
 def ImageWorkerTest(request):
@@ -28,3 +30,9 @@ def index(request):
     context = {"text": "123"}
 
     return render(request, "index.html", context)
+
+
+def test_info(request):
+    context = site_info.objects.all()
+
+    return render(request, "testInfo.html", {"test":context})

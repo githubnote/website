@@ -1,0 +1,15 @@
+
+{% load pagination_tags %}
+
+
+
+{% autopaginate test   %}
+
+
+<ul>
+    {% for i in test  %}
+    <li>{{i}}</li>
+
+{% endfor %}
+    {% paginate %}
+</ul>
