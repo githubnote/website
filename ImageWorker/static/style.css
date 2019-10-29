@@ -1,7 +1,24 @@
-h1{
-    color: blue
+li.active{
+    list-style: none;
+    float: left;
+    color: black;
+
 }
 
-h2{
+
+li.active:hover{
+    list-style: none;
+    float: left;
     color: red;
+}
+
+li.enabled{
+    list-style: none;
+    float: left;
+}
+.sr-only{
+    color: red;
+    
+
+
 }

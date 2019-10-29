@@ -37,22 +37,20 @@ def index(request):
 def test_info(request):
     context = site_info.objects.all()
 
-
-    paginator = Paginator(context, 5)
+    paginator = Paginator(list(context), 5)
     page = request.GET.get('page')
 
 
+    indexmix = int(page) - 5
+    indexmax = int(page) + 5
 
+    if indexmix < 1 :
+        indexmix = 1
+    if indexmax > paginator.num_pages:
 
+        indexmax = paginator.num_pages
 
-
-
-
-
-
-
-
-
+    indexnum=[x for x in range(indexmix,indexmax)]
 
 
     try:
@@ -66,5 +64,6 @@ def test_info(request):
     return render(request, "testInfo.html",
                   {"test": context_obj,
                    "page": page,
+                    "indexnum": indexnum,
                     }
     )

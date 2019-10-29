@@ -1,5 +1,9 @@
 
+{% load static %}
 
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 <h1>{{page}}</h1></br>
 
@@ -23,13 +27,13 @@
 
                         <!—  分页功能前端的方向箭头代码-->
                         {% if test.has_previous %}
-             ......
+
                         <li class="enabled">
                             <a href="?page={{ test.previous_page_number }}" aria-label="Previous">
                                 <span aria-hidden="true">«</span>
 
                             </a>
-
+......
                         </li>
                         {% endif %}
 
@@ -38,20 +42,27 @@
 
 
 
-                             {% for i in indexnum %}
-                              <li class="active"> {{ i }}
 
+                             {% for i in indexnum %}
+
+
+                              <li class="active">
+                               {% if i != test.number %}
+                               {{i}}.
+                               {% endif %}
                               {% if i == test.number %}
 
                                     <a href="#">
-                                        <span class="sr-only">(current)</span>
+                                        <span class="sr-only">{{test.number}}.</span>
+
                                     </a>
-                                </li>
 
 
 
                                {% endif %}
                               {% endfor %}
+</li>
+
 
 
 
@@ -59,14 +70,14 @@
                         <!—  分页功能末端的方向箭头代码-->
 
                         {% if  test.has_next %}
-                        ......
 
-                        <li class="enabled">
+ ......
                             <a href="?page={{ test.next_page_number }}" aria-label="last">
                                 <span aria-hidden="true">»</span>
                             </a>
 
-                        </li>
+
+
 
                         {% endif %}
 
