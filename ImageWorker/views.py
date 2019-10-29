@@ -3,7 +3,9 @@ from django.http import HttpResponse
 from django.http import Http404
 
 from .models import site_info
-from django.template import RequestContext
+
+
+from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -35,4 +37,34 @@ def index(request):
 def test_info(request):
     context = site_info.objects.all()
 
-    return render(request, "testInfo.html", {"test":context})
+
+    paginator = Paginator(context, 5)
+    page = request.GET.get('page')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    try:
+        #通过获取上面的page参数，查询此page是否为整数并且是否可用
+        context_obj = paginator.page(page)
+    except PageNotAnInteger:
+        context_obj = paginator.page(1)
+    except (EmptyPage, InvalidPage):
+        context_obj = paginator.page(paginator.num_pages)
+
+    return render(request, "testInfo.html",
+                  {"test": context_obj,
+                   "page": page,
+                    }
+    )

@@ -1,15 +1,76 @@
 
-{% load pagination_tags %}
 
 
-
-{% autopaginate test   %}
-
+<h1>{{page}}</h1></br>
 
 <ul>
     {% for i in test  %}
-    <li>{{i}}</li>
+    <li>{{i.pk}}:{{i}}</li>
 
 {% endfor %}
-    {% paginate %}
+
 </ul>
+
+
+
+
+
+<div class="pull-right" style="margin-right: 480px;margin-top: 0px”>
+                <!—  分页功能-->
+                <nav>
+                    <ul class="pagination”>
+
+
+                        <!—  分页功能前端的方向箭头代码-->
+                        {% if test.has_previous %}
+             ......
+                        <li class="enabled">
+                            <a href="?page={{ test.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+
+                            </a>
+
+                        </li>
+                        {% endif %}
+
+
+                        <!—  分页功能显示页码的中间部分代码-->
+
+
+
+                             {% for i in indexnum %}
+                              <li class="active"> {{ i }}
+
+                              {% if i == test.number %}
+
+                                    <a href="#">
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+
+
+
+                               {% endif %}
+                              {% endfor %}
+
+
+
+
+                        <!—  分页功能末端的方向箭头代码-->
+
+                        {% if  test.has_next %}
+                        ......
+
+                        <li class="enabled">
+                            <a href="?page={{ test.next_page_number }}" aria-label="last">
+                                <span aria-hidden="true">»</span>
+                            </a>
+
+                        </li>
+
+                        {% endif %}
+
+
+                    </ul>
+                </nav>
+</div>

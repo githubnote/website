@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     "ImageWorker.apps.ImageworkerConfig",
     'autofixture',
-    'dj_pagination',
+
 
 
 
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 
-    'dj_pagination.middleware.PaginationMiddleware',
+
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -75,11 +75,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
 
-                "django.core.context_processors.auth",
-                "django.core.context_processors.debug",
-                "django.core.context_processors.i18n",
-                "django.core.context_processors.media",
-                "django.core.context_processors.request",
+                
 
             ],
         },
