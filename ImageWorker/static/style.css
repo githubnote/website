@@ -18,7 +18,17 @@ li.enabled{
 }
 .sr-only{
     color: red;
-    
+}
 
+.div1{
+    background-color:black;
+    color: red;
+     
+    width: 400px;
+    height: 400px;
 
+}
+
+.div2{
+    background-color: green;
 }
