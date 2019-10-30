@@ -38,7 +38,7 @@ def test_info(request):
     context = site_info.objects.all()
 
     paginator = Paginator(list(context), 5)
-    page = request.GET.get('page')
+    page = request.GET.get('page',1)
 
 
     indexmix = int(page) - 5
